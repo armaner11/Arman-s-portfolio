@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    :root {
+      --bg-light: #f4f6f9;
+      --text-light: #333;
+      --bg-dark: linear-gradient(135deg, #1f1c2c, #928dab);
+      --text-dark: #fff;
+      --accent: #ff6f61;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-dark);
+      color: var(--text-dark);
+      transition: background 0.5s, color 0.5s;
+    }
+
+    .light-theme {
+      background: var(--bg-light);
+      color: var(--text-light);
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      animation: fadeDown 1.5s ease;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Flip Card */
+    .flip-card {
+      background-color: transparent;
+      width: 250px;
+      height: 250px;
+      margin: 40px auto;
+      perspective: 1000px;
+      animation: fadeUp 2s ease;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .flip-card-front img, .flip-card-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* Sections */
+    section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin: 8px 0;
+      font-size: 1.1em;
+    }
+
+    /* Project Cards */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      font-size: 1.5em;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .project-card a:hover {
+      background: #ff3b2e;
+    }
+
+    /* Animations */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+  <header>
+    <h1>Hi, I'm Arman</h1>
+    <p>Welcome to my portfolio — explore my projects and connect with me!</p>
+  </header>
+
+  <!-- Flip Card -->
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="c:\Users\Arman\Downloads\arman photo2.jpeg" alt="Your Photo">
+      </div>
+      <div class="flip-card-back">
+        <img src="c:\Users\Arman\Downloads\Untitled 1.png" alt="LinkedIn QR Code">
+      </div>
+    </div>
+  </div>
+
+  <!-- About Me -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am Arman, a passionate Web Developer with experience in creating responsive and interactive websites.
+      I enjoy solving problems and building projects that make life easier.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>My Skills</h2>
+    <ul>
+      <li>✅ HTML5, CSS3, JavaScript</li>
+      <li>✅ Responsive Web Design</li>
+      <li>✅ Bootstrap / Tailwind CSS</li>
+      <li>✅ Git & GitHub</li>
+    </ul>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects">
+    <h2>My Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Weather App</h3>
+        <p>A simple weather app using OpenWeather API.</p>
+        <a href="github link" target="_blank">View on GitHub</a>
+      </div>
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>This very portfolio, built with HTML, CSS, and animations.</p>
+        <a href="github link" target="_blank">View on GitHub</a>
+      </div>
+      <div class="project-card">
+        <h3>Chatbot</h3>
+        <p>An AI-powered chatbot built with Python and Flask.</p>
+        <a href="github link" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:arman637894@gmail.com">arman637894@gmail.com</a></p>
+    <p>Phone: +91-63789-43231</p>
+    <p>Address: Hisar, Haryana, India</p>
+  </section>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("light-theme");
+    }
+  </script>
+
+</body>
+</html>
